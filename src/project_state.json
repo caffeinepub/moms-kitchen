@@ -1,0 +1,156 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 7,
+  "summary": "Build a food ordering app for a cloud kitchen called \"Moms Kitchen\".",
+  "architectural_notes": [
+    "Menu items should include an availability flag (available/unavailable) that the UI uses to prevent ordering unavailable dishes."
+  ],
+  "known_issues": [
+    "Deployed application is not working (user reports the app is broken)."
+  ],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-customer-facing-web-app-for-the-cloud-kitchen-named-moms-kitchen-that-lets-users-browse-the-menu-add-items-to-a-cart-and-place-a-food-order",
+      "title": "Create a customer-facing web app for the cloud kitchen named \"Moms Kitchen\" that lets users browse the menu, add items to a cart, and place a food order.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-seed-the-application-with-a-starter-menu-for-moms-kitchen-that-is-available-on-first-load-no-admin-ui-required",
+      "title": "Seed the application with a starter menu for \"Moms Kitchen\" that is available on first load (no admin UI required).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-key-customer-screens-menu-browse-cart-review-edit-checkout-customer-details-order-confirmation-order-summary-and-order-lookup-enter-order-id-to-view-status-details",
+      "title": "Create key customer screens: Menu (browse), Cart (review/edit), Checkout (customer details), Order Confirmation (order summary), and Order Lookup (enter order ID to view status/details).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-use-react-query-for-backend-data-fetching-mutations-menu-fetch-place-order-lookup-order-with-loading-error-states-for-each-operation",
+      "title": "Use React Query for backend data fetching/mutations (menu fetch, place order, lookup order), with loading/error states for each operation.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-define-and-apply-a-consistent-visual-theme-for-moms-kitchen-distinct-style-colors-typography-and-layout-across-all-pages-using-tailwind-without-using-a-blue-purple-primary-palette",
+      "title": "Define and apply a consistent visual theme for \"Moms Kitchen\" (distinct style, colors, typography, and layout) across all pages using Tailwind, without using a blue/purple primary palette.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-brand-assets-and-render-them-in-the-ui-from-the-frontend-public-assets-directory-no-backend-image-serving",
+      "title": "Add generated static brand assets and render them in the UI from the frontend public assets directory (no backend image serving).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-frontend-handling-of-motoko-candid-variant-types-for-orderstatus-so-order-tracking-and-confirmation-pages-do-not-crash-and-display-a-correct-human-readable-status-label",
+      "title": "Fix frontend handling of Motoko Candid variant types for OrderStatus so order tracking and confirmation pages do not crash and display a correct, human-readable status label.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-clear-user-facing-error-state-when-the-frontend-cannot-reach-or-initialize-the-backend-actor-including-a-retry-affordance-so-the-app-does-not-appear-blank-or-broken",
+      "title": "Add a clear user-facing error state when the frontend cannot reach or initialize the backend actor, including a retry affordance, so the app does not appear blank or broken.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-menu-page-ui-to-reflect-availability-show-a-clear-unavailable-state-for-unavailable-dishes-and-prevent-adding-unavailable-dishes-to-the-cart",
+      "title": "Update the Menu page UI to reflect availability: show a clear “Unavailable” state for unavailable dishes and prevent adding unavailable dishes to the cart.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-menu-management-ui-in-the-app-that-lets-a-user-add-new-dishes-and-mark-dishes-available-unavailable-from-the-menu-management-screen-using-react-query-mutations-and-showing-loading-error-states",
+      "title": "Add a menu management UI in the app that lets a user add new dishes and mark dishes available/unavailable from the menu management screen, using React Query mutations and showing loading/error states.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a cloud-kitchen food ordering app for \"Moms Kitchen\" (browse menu and place orders).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Implement backend canister data models and APIs for menu items and orders, including persistence across canister upgrades using stable state.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Ensure the backend canister always has a non-empty starter menu on first load so the Menu page displays items without requiring any user action.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add a menu management option to let an admin/owner add new dishes (create menu items) from the app UI.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Support marking menu items as available/unavailable and reflect this in the customer menu (e.g., disable ordering or hide unavailable items).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Create and include a cute \"Mom's Kitchen\" logo as a static brand asset and render it in the UI.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Extend the backend MenuItem model to include an availability flag, and expose it via getMenu so the frontend can tell whether each dish is available or unavailable.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Add backend APIs to (1) create a new dish (menu item) and (2) toggle/set a dish as available or unavailable.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Moms Kitchen",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

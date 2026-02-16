@@ -1,0 +1,20 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup, defining all routes (menu, cart, checkout, confirmation, lookup, manage-menu) with AppLayout wrapper.",
+  "frontend/src/components/AppLayout.tsx": "Shared layout wrapper providing consistent header, BackendConnectionBanner for connection errors, main content area, and footer with Caffeine attribution across all pages.",
+  "frontend/src/components/AppHeader.tsx": "Sticky header component displaying Moms Kitchen branding with logo, navigation links including new Manage Menu link, and cart icon with item count badge.",
+  "frontend/src/features/cart/CartProvider.tsx": "React context provider managing cart state with reducer pattern and localStorage persistence for session continuity.",
+  "frontend/src/features/cart/useCart.ts": "Custom hook exposing cart operations (add, remove, update, clear) with defensive check preventing unavailable items from being added, and computed values (totals, line totals) for components.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations including menu fetching, order placement, order status lookup, order history, creating menu items, and setting menu item availability with automatic query invalidation.",
+  "frontend/src/pages/MenuPage.tsx": "Menu browsing page displaying hero banner and menu items in card grid with availability badges, disabled add-to-cart buttons for unavailable items, and toast notifications preventing unavailable item additions.",
+  "frontend/src/pages/CartPage.tsx": "Cart review page showing line items with quantity controls, remove buttons, and order summary with checkout navigation.",
+  "frontend/src/pages/CheckoutPage.tsx": "Checkout form page collecting customer details with validation and order submission, enhanced error handling distinguishing connection errors from other failures with retry affordance, using getLineTotal function for calculating line item prices.",
+  "frontend/src/pages/OrderConfirmationPage.tsx": "Order confirmation page displaying success message, order details, and normalized status badge using status utility functions for safe rendering after successful order placement.",
+  "frontend/src/pages/OrderLookupPage.tsx": "Order tracking page with search input for order ID lookup, displaying order status using normalized status utilities, distinguishing between connection errors and order-not-found errors with retry functionality.",
+  "frontend/src/main.tsx": "Application entry point wrapping app with QueryClient, InternetIdentity, CartProvider, and Toaster for notifications.",
+  "frontend/src/index.css": "Global styles with warm, earthy OKLCH color palette (terracotta primary, cream secondary, golden accents) for home-kitchen aesthetic in light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending theme with warm color tokens, custom shadows, Inter font family, and animation utilities.",
+  "frontend/src/utils/orderStatus.ts": "Utility module providing normalization and formatting functions for OrderStatus enum values, converting them to stable strings with human-readable labels, messages, and badge variants with safe fallback handling.",
+  "frontend/src/hooks/useBackendConnectionStatus.ts": "Custom hook monitoring backend actor connection status and providing retry functionality by checking actor query state and exposing connection error status with refetch capability.",
+  "frontend/src/components/BackendConnectionBanner.tsx": "Reusable alert banner component displaying backend connection errors with retry button, automatically hidden when connection is healthy.",
+  "frontend/src/pages/MenuManagementPage.tsx": "Menu management page with form to create new dishes (name, description, price, image URL) and list of existing dishes with availability toggle switches, showing loading states and error messages in English."
+}

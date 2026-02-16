@@ -1,0 +1,60 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Menu availability UI + menu management screen for Moms Kitchen (frontend)",
+  "requirements": [
+    {
+      "id": "REQ-13",
+      "summary": "Reflect dish availability on the Menu page and prevent adding unavailable items to the cart with an English user message.",
+      "acceptanceCriteria": [
+        "Menu items marked unavailable are visually distinguishable (e.g., badge/label and/or muted styling).",
+        "The “Add to Cart” button is disabled (or otherwise prevented) for unavailable items.",
+        "Attempting to add an unavailable item does not add it to the cart and shows a user-facing message in English explaining it is unavailable."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/MenuPage.tsx",
+          "operation": "modify",
+          "description": "Update menu item cards to visually indicate unavailable items (e.g., badge/label and muted styling) and disable/prevent the “Add to Cart” action when item.available is false; show an English toast message (e.g., “This item is currently unavailable.”) if the user attempts to add an unavailable item. Use shadcn-ui components (e.g., Button, Card, Alert, Badge) for consistent UI composition. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/features/cart/useCart.ts",
+          "operation": "modify",
+          "description": "Add a defensive check in cart addItem helper to prevent adding a MenuItem with available === false (no-op) so the behavior is enforced even if called outside the Menu page; keep user-facing messaging handled by the UI layer to maintain consistent English copy."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Add a menu management screen to create dishes and toggle availability using React Query mutations with loading/error states and automatic menu refresh.",
+      "acceptanceCriteria": [
+        "There is a UI flow to create a new dish with fields for name, description, price, and image URL (English labels).",
+        "There is a UI control to mark an existing dish as available/unavailable.",
+        "Create/toggle actions show loading feedback and show an English error message if the operation fails.",
+        "After creating a dish or changing availability, the menu list refreshes to show the updated data without requiring a manual page reload."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add React Query mutation hooks for creating a menu item and setting menu item availability by calling the existing backend actor methods; ensure successful mutations invalidate/refresh the ['menu'] query and expose mutation loading/error state for UI consumption."
+        },
+        {
+          "path": "frontend/src/pages/MenuManagementPage.tsx",
+          "operation": "create",
+          "description": "Create a menu management page that (1) shows a form to create a new dish (name, description, price, image URL) with English labels and validation messaging, and (2) lists existing dishes with an availability toggle control. Use shadcn-ui components (e.g., Card, Button, Input, Label, Textarea, Switch, Alert, Skeleton) to render the form, list, and loading/error states. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register a new navigable route (e.g., /manage-menu) that renders the MenuManagementPage so the screen is reachable via TanStack Router."
+        },
+        {
+          "path": "frontend/src/components/AppHeader.tsx",
+          "operation": "modify",
+          "description": "Add a navigation entry to the header for the menu management screen (English label like “Manage Menu”), using existing header layout and shadcn-ui Button/Link composition. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

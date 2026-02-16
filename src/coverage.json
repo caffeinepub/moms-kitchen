@@ -1,0 +1,81 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-16T06:50:10.438Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 4,
+    "implemented": 2,
+    "items": [
+      {
+        "id": "REQ-11",
+        "summary": "Extend the backend MenuItem model to include an availability flag, and expose it via getMenu so the frontend can tell whether each dish is available or unavailable.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-12",
+        "summary": "Add backend APIs to (1) create a new dish (menu item) and (2) toggle/set a dish as available or unavailable.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-13",
+        "summary": "Update the Menu page UI to reflect availability: show a clear “Unavailable” state for unavailable dishes and prevent adding unavailable dishes to the cart.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/MenuPage.tsx",
+          "frontend/src/features/cart/useCart.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/MenuPage.tsx",
+          "frontend/src/features/cart/useCart.ts"
+        ]
+      },
+      {
+        "id": "REQ-14",
+        "summary": "Add a menu management UI in the app that lets a user add new dishes and mark dishes available/unavailable from the menu management screen, using React Query mutations and showing loading/error states.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/pages/MenuManagementPage.tsx",
+          "frontend/src/App.tsx",
+          "frontend/src/components/AppHeader.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/pages/MenuManagementPage.tsx",
+          "frontend/src/App.tsx",
+          "frontend/src/components/AppHeader.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/AppHeader.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/features/cart/useCart.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/pages/MenuManagementPage.tsx",
+    "frontend/src/pages/MenuPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

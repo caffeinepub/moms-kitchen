@@ -1,0 +1,103 @@
+{
+  "kind": "build_request",
+  "title": "Add menu management (add dishes + mark available/unavailable) for Moms Kitchen",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-11",
+      "text": "Extend the backend MenuItem model to include an availability flag, and expose it via getMenu so the frontend can tell whether each dish is available or unavailable.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "And in menu there is option to add dishes and an option of available and unavailable"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Calling getMenu returns each menu item with an explicit availability value (available/unavailable).",
+        "Existing menu items continue to load successfully after the change (no runtime traps due to missing fields)."
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Add backend APIs to (1) create a new dish (menu item) and (2) toggle/set a dish as available or unavailable.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "in menu there is option to add dishes and an option of available and unavailable"
+        ]
+      },
+      "acceptanceCriteria": [
+        "There is a backend method that creates a new menu item with required fields (name, description, price, imageUrl) and a default availability value.",
+        "There is a backend method that updates an existing menu item’s availability (available/unavailable) by menu item id.",
+        "If an invalid menu item id is provided to the availability update method, the backend returns a clear error (trap) rather than silently succeeding."
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Update the Menu page UI to reflect availability: show a clear “Unavailable” state for unavailable dishes and prevent adding unavailable dishes to the cart.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "an option of available and unavailable"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Menu items marked unavailable are visually distinguishable (e.g., badge/label and/or muted styling).",
+        "The “Add to Cart” button is disabled (or otherwise prevented) for unavailable items.",
+        "Attempting to add an unavailable item does not add it to the cart and shows a user-facing message in English explaining it is unavailable."
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Add a menu management UI in the app that lets a user add new dishes and mark dishes available/unavailable from the menu management screen, using React Query mutations and showing loading/error states.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "in menu there is option to add dishes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "There is a UI flow to create a new dish with fields for name, description, price, and image URL (English labels).",
+        "There is a UI control to mark an existing dish as available/unavailable.",
+        "Create/toggle actions show loading feedback and show an English error message if the operation fails.",
+        "After creating a dish or changing availability, the menu list refreshes to show the updated data without requiring a manual page reload."
+      ]
+    }
+  ],
+  "constraints": [
+    "Respect the existing single-actor backend architecture: keep all Motoko logic in backend/main.mo.",
+    "Do not edit files under frontend/src/components/ui or any other frontend immutable paths listed in SYSTEM_CONTEXT; compose these components instead.",
+    "Use English for all user-facing UI text added or modified."
+  ],
+  "nonGoals": [
+    "Do not add third-party authentication/roles/permissions systems beyond what already exists (Internet Identity).",
+    "Do not add real-time updates (e.g., WebSockets) for menu availability changes.",
+    "Do not implement payments or delivery tracking beyond the existing order status flow."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}
